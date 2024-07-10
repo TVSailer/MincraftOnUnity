@@ -39,6 +39,7 @@ public class ChunkRenderer : MonoBehaviour
         chunkMesh.triangles = triangles.ToArray();
         
         GetComponent<MeshFilter>().mesh = chunkMesh;
+        GetComponent<MeshCollider>().sharedMesh = chunkMesh;
     }
 
     private void GenerateBlock(int x, int y, int z)
@@ -65,7 +66,7 @@ public class ChunkRenderer : MonoBehaviour
         }
         else
         {
-            return 0;
+            return 1;
         }
     }
     private void GenerateRightSide(Vector3Int blockPosition)
